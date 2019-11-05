@@ -1,0 +1,21 @@
+const Person = require('./person')
+const Book = require('./book')
+const Faker = require('faker')
+bookName = () => Faker.random.words()
+personName = () => Faker.name.firstName() + ' ' + Faker.name.lastName()
+
+person_1 = new Person(personName())
+person_2 = new Person(personName())
+
+book_1 = new Book(bookName())
+book_2 = new Book(bookName())
+book_3 = new Book(bookName())
+
+person_1.borrow(book_1)
+person_2.lend(book_1)
+person_2.borrow(book_2)
+person_1.lend(book_2)
+person_1.read(book_2)
+person_1.printActivities()
+person_2.printActivities()
+book_2.printStatistics()
